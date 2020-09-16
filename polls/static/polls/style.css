@@ -1,6 +1,11 @@
 body {
     background: white url("images/background.gif") no-repeat;
+    font-size: 20px;
 }
 li a {
     color: green;
+    font-size: 32px;
+    font-weight: bold;
 }
+
+

@@ -1,9 +1,15 @@
-{% load static %}
+    {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+{% if messages %}
+<ul class="messages">
+  {% for msg in messages %}
+    <li class="{{msg.error}}">{{ msg }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
 
 {% if latest_question_list %}
     <ul>
