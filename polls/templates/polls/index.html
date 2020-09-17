@@ -1,4 +1,4 @@
-    {% load static %}
+{% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 {% load static %}
@@ -15,10 +15,8 @@
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
-        <!-- <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> -->
-        <li href="{}">{{ question.question_text }}</a></li>
-        <!-- <li><a href="{% url 'polls:detail' question.id %}">{{"VOTE"}}</a></li> -->
-        <a href="{% url 'polls:detail' question.id %}"><button class="button vote">Vote</button>
+        <br><a>{{ question.question_text }}</a><br>
+        <a href="{% url 'polls:detail' question.id %}"><button class="button vote"{%  if not question.can_vote %} disabled {% endif %}>Vote</button> </a>
           <a href="{% url 'polls:results' question.id %}"><button class="button result">Result</button> </a>
     {% endfor %}
     </ul>
