@@ -7,5 +7,35 @@ li a {
     font-size: 32px;
     font-weight: bold;
 }
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.vote {
+    background-color:#4CAF50;
+    border-color:#4CAF50;
+    color:white;
+}
+.result {
+    background-color:#008CBA;
+    border-color:#008CBA;
+    color:white;
+}
 
+input[type=submit] {
+    background-color: wheat;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 

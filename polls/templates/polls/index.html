@@ -1,0 +1,28 @@
+    {% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+{% load static %}
+
+<body>
+{% if messages %}
+<ul class="messages">
+  {% for msg in messages %}
+    <li class="{{msg.error}}">{{ msg }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <!-- <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> -->
+        <li href="{}">{{ question.question_text }}</a></li>
+        <!-- <li><a href="{% url 'polls:detail' question.id %}">{{"VOTE"}}</a></li> -->
+        <a href="{% url 'polls:detail' question.id %}"><button class="button vote">Vote</button>
+          <a href="{% url 'polls:results' question.id %}"><button class="button result">Result</button> </a>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>

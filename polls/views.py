@@ -29,16 +29,6 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
-
-# def vote_for_poll(request, question_id):
-#     choice_id = request.POST['choice']
-#     if not choice_id:
-#         messages.error(request, f"You didn't make a choice")
-#         return redirect('polls:index')
-#     messages.success(request, "Your choice successfully recorded. Thank you.")
-#     return redirect('polls:results')
-
-
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
