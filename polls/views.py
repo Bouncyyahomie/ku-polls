@@ -40,10 +40,10 @@ class IndexView(generic.ListView):
         """
         return Question.objects.filter(
             pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+        ).order_by('-pub_date')[:]
 
 
-def detail_view(request, pk):
+def vote_for_poll(request, pk):
     question = get_object_or_404(Question, pk=pk)
     if not question.can_vote():
         messages.error(request, f"You are not allowed to vote this question")

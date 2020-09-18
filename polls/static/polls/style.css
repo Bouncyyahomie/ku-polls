@@ -23,6 +23,14 @@ li a {
     border-color:#4CAF50;
     color:white;
 }
+
+.vote:disabled,
+.vote[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 .result {
     background-color:#008CBA;
     border-color:#008CBA;
