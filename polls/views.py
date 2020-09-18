@@ -40,7 +40,7 @@ class IndexView(generic.ListView):
         """
         return Question.objects.filter(
             pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:]
+        ).order_by('-pub_date')
 
 
 def vote_for_poll(request, pk):

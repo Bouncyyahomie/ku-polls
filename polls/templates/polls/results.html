@@ -4,12 +4,25 @@
 {% load static %}
 
 <h1>{{ question.question_text }}</h1>
-
-<ul>
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+</style>
+<table  
+    align="left"> 
+    <tr>
+        <th>Choice</th>
+        <th>Vote</th>
+    </tr>
 {% for choice in question.choice_set.all %}
-    <br><a>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</a><br>
+    <!-- <a>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</a><br> -->
+    <tr>
+        <td>{{ choice.choice_text }} </td>
+        <td>{{ choice.votes }} </td>
+    </tr>
 {% endfor %}
-</ul>
+</table> 
 
 <a href="{% url 'polls:detail' question.id %}"><button class="button vote">Vote again?</button>
     <a href="{% url 'polls:index' %}"><button class="button result">Back to polls page</button> </a>
