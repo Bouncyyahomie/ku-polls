@@ -9,6 +9,6 @@ Web application for conducting online polls and surveys.
 - [Iteration 1 Plan](../../wiki/Iteration%201%20Plan)
 - [Task Board](../../projects/1)
 ### Iteration 2
-- [Iteration 2 Plan]()
+- [Iteration 2 Plan](../../wiki/Iteration%202%20Plan)
 - [Task Board](../../projects/2)
 
