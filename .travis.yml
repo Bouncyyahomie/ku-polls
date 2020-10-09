@@ -1,0 +1,19 @@
+language: python
+
+# you can use Python 3.7 instead
+python: "3.6"
+
+# don't clone more than necessary
+git:
+  depth: 1
+
+# Install any dependencies
+install:
+  pip install -r requirements.txt
+
+# script to run tests. Script can have many commands, one per line.
+script:
+  - coverage run -m unittest discover -p "test.py"
+
+after_script:
+  - bash <(curl -s https://codecov.io/bash)

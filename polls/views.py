@@ -1,5 +1,5 @@
-from django.shortcuts import render,get_object_or_404,redirect
-from django.http import HttpResponse,Http404,HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from django.views import generic
@@ -8,10 +8,16 @@ from .test import create_question
 from django.test import TestCase
 from django.contrib import messages
 
-from .models import Question,Choice
+from .models import Question, Choice
 
 
 def vote(request, question_id):
+    """
+    For vote choice.
+    :param request:
+    :param question_id:
+    :return:
+    """
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -30,6 +36,9 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 class IndexView(generic.ListView):
+    """
+    For view index page.
+    """
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
@@ -44,12 +53,17 @@ class IndexView(generic.ListView):
 
 
 def vote_for_poll(request, pk):
+    """
+    For vote the poll.
+    :param request:
+    :param pk:
+    :return: render detail
+    """
     question = get_object_or_404(Question, pk=pk)
     if not question.can_vote():
         messages.error(request, f"You are not allowed to vote this question")
         return redirect('polls:index')
-    return render(request, 'polls/detail.html', {
-            'question': question})
+    return render(request, 'polls/detail.html', {'question': question})
 
 # class DetailView(generic.DetailView): //I change from class base view to method base view.
     # model = Question
@@ -61,5 +75,6 @@ def vote_for_poll(request, pk):
     #     return Question.objects.filter(pub_date__lte=timezone.now())
 
 class ResultsView(generic.DetailView):
+   """For view results page."""
     model = Question
     template_name = 'polls/results.html'
