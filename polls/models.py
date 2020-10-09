@@ -32,7 +32,7 @@ class Question(models.Model):
 
     def can_vote(self):
         """
-        For know that the question can vote
+        For know that the question can vote.
         :return:
         """
         now = timezone.now()
@@ -50,9 +50,7 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    """
-    For set question
-    """
+    """For set question."""
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
