@@ -1,4 +1,4 @@
-"""TEST polls app"""
+"""TEST polls app."""
 import datetime
 from django.test import TestCase
 from django.utils import timezone
@@ -8,6 +8,7 @@ from .models import Question
 
 
 def create_question(question_text, days, closed):
+
     """
     Create a question with the given `question_text` and published the
     given number of `days` offset to now (negative for questions published
