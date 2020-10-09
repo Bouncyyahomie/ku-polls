@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/github/Bouncyyahomie/ku-polls?branch=master)](https://travis-ci.com/Bouncyyahomie/ku-polls)
+[![codecov](https://codecov.io/gh/Bouncyyahomie/ku-polls/branch/master/graph/badge.svg)](https://codecov.io/gh/Bouncyyahomie/ku-polls)
 # ku-polls
 Web application for conducting online polls and surveys.
 
