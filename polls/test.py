@@ -9,9 +9,10 @@ from .models import Question
 
 def create_question(question_text, days, closed):
     """
-    Create a question with the given `question_text` and published the
-    given number of `days` offset to now (negative for questions published
-    in the past, positive for questions that have yet to be published).
+    Create a question with the given `question_text`.
+
+    And published the given number of `days` offset to now
+    (negative for questions published in the past, positive for questions that have yet to be published).
     """
     time = timezone.now() + datetime.timedelta(days=days)
     closed = timezone.now() + datetime.timedelta(days=closed)
@@ -19,7 +20,7 @@ def create_question(question_text, days, closed):
 
 
 class QuestionModelTests(TestCase):
-    """Test about question polls"""
+    """Test about question polls."""
 
     def test_was_published_recently_with_future_question(self):
         """was_published_recently() returns False for questions whose pub_date is in the future."""

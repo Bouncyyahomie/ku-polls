@@ -1,4 +1,4 @@
-"""Manage models question and choice"""
+"""Manage models question and choice."""
 import datetime
 from django.db import models
 from django.utils import timezone
@@ -6,6 +6,7 @@ from django.utils import timezone
 
 class Question(models.Model):
     """Class for set and save question."""
+
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     end_date = models.DateTimeField('date close')
@@ -17,6 +18,7 @@ class Question(models.Model):
     def was_published_recently(self):
         """
         For get to know that the question was just published.
+
         :return: recently date
         """
         now = timezone.now()
@@ -25,6 +27,7 @@ class Question(models.Model):
     def is_published(self):
         """
         For get to know that the question is published.
+
         :return:
         """
         now = timezone.now()
@@ -33,6 +36,7 @@ class Question(models.Model):
     def can_vote(self):
         """
         For know that the question can vote.
+
         :return:
         """
         now = timezone.now()
@@ -51,13 +55,15 @@ class Question(models.Model):
 
 class Choice(models.Model):
     """For set question."""
+
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 
     def __str__(self):
         """
-        show text
+        For show choice text.
+
         :return: text choice
         """
         return self.choice_text

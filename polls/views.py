@@ -11,6 +11,7 @@ from .models import Question, Choice
 def vote(request, question_id):
     """
     For vote choice.
+
     :param request:
     :param question_id:
     :return:
@@ -34,9 +35,8 @@ def vote(request, question_id):
 
 
 class IndexView(generic.ListView):
-    """
-    For set index page.
-    """
+    """For set index page."""
+
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
@@ -50,6 +50,7 @@ class IndexView(generic.ListView):
 def vote_for_poll(request, pk):
     """
     For vote the poll.
+
     :param request:
     :param pk:
     :return: render detail
