@@ -1,4 +1,5 @@
 """Views for set and manage page."""
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -8,6 +9,7 @@ from django.contrib import messages
 from .models import Question, Choice
 
 
+@login_required
 def vote(request, question_id):
     """
     For vote choice.
@@ -17,6 +19,9 @@ def vote(request, question_id):
     :return:
     """
     question = get_object_or_404(Question, pk=question_id)
+    user = request.user
+    print("current user is", user.id, "login", user.username)
+    print("Real name:", user.first_name, user.last_name)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
@@ -76,3 +81,4 @@ class ResultsView(generic.DeleteView):
 
     model = Question
     template_name = 'polls/results.html'
+
