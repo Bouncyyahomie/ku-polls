@@ -16,9 +16,9 @@
     <H2> Welcome to KU-POLLS, {{ user.username }} </H2>
     <a href="{% url 'logout' %}">Logout</a>
 {% else %}
-    <H2> Welcome to KU-POLLS, {{ user.username }} </H2>
-   Please <a href="{% url 'login' %}">Need to Login</a>
-    Or <a href="{% url 'signup' %}">SignUp</a>
+    <H2> Welcome to KU-POLLS, AnonymousUser </H2>
+   You can not vote the polls, <a href="{% url 'login' %}">Need to Login</a>
+{#    Or <a href="{% url 'signup' %}">SignUp</a>#}
 {% endif %}
 
 {% if latest_question_list %}
