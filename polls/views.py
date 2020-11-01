@@ -40,7 +40,12 @@ def vote(request, question_id):
             'error_message': "You didn't select a choice.",
         })
     else:
-        Vote.objects.update(question=question, choice=selected_choice, user=request.user)
+        if question.vote_set.filter(user=user).exists():
+            selected_vote = question.vote_set.get(user=user)
+            selected_vote.choice = selected_choice
+            selected_vote.save()
+        else:
+            Vote.objects.update_or_create(question=question, choice=selected_choice, user=request.user)
         logger.info(f"user: {user.username} has voting on {get_client_ip(request)} ")
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
