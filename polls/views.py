@@ -73,7 +73,7 @@ def vote_for_poll(request, pk):
     user = request.user
     question = get_object_or_404(Question, pk=pk)
     if question.vote_set.filter(user=user).exists():
-        previous_vote = Vote.objects.filter(question=question).filter(user=request.user).first().choice.choice_text
+        previous_vote = Vote.objects.filter(question=question, user=request.user).first().choice.choice_text
     else:
         previous_vote = "You did not vote yet."
     if not question.can_vote():
